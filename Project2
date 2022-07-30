@@ -1,0 +1,139 @@
+projekt_2.py: druhý projekt do Engeto Online Python Akademie
+author: Miroslav Zelený
+email: m.zeleny@volny.cz
+discord: Mirek Z.
+"""
+from random import randrange
+
+print("""Hi there!
+-----------------------------------------------
+I've generated a random 4 digit number for you.
+Let's play a bulls and cows game.
+-----------------------------------------------""")
+random_numbers=[]
+list=[0,1,2,3]
+for i in list:
+    if i<=3:
+        random_numbers.append(randrange(1,10))
+        i+=1
+while (random_numbers[0]==random_numbers[1] or random_numbers[0]==random_numbers[2] or random_numbers[0]==random_numbers[3] or random_numbers[1]==random_numbers[2] or random_numbers[2]==random_numbers[3]):
+      random_numbers[0]=(randrange(1, 10))
+      random_numbers[1]=(randrange(1, 10))
+      random_numbers[2]=(randrange(1, 10))
+      random_numbers[3]=(randrange(1, 10))
+print("random_numbers", random_numbers)
+
+input_number=input("Enter a 4 digit number 1-9 :")
+
+
+while input_number!="":
+    input_numbers = []
+    for a in input_number:
+        input_numbers.append(a)
+
+    if input_numbers[0]==0:
+        print("The number can´t start with 0!")
+        input_number = input("Enter a 4 digit number 1-9 :")
+
+    if len(input_numbers)==4:
+        if (input_numbers[0]==input_numbers[1] or input_numbers[0]==input_numbers[2] or input_numbers[0]==input_numbers[3] or input_numbers[1]==input_numbers[2] or input_numbers[2]==input_numbers[3]):
+            print("Digits in nuber must be different!")
+            input_number = input("Enter a 4 digit number 1-9 :")
+    if len(input_numbers)==3:
+        if (input_numbers[0]==input_numbers[1] or input_numbers[0]==input_numbers[2] or input_numbers[1]==input_numbers[2]):
+            print("Digits in nuber must be different!")
+            input_number = input("Enter a 4 digit number 1-9 :")
+    if len(input_numbers)==2:
+        if input_numbers[0]==input_numbers[1]:
+            print("Digits in nuber must be different!")
+            input_number = input("Enter a 4 digit number 1-9 :")
+    elif input_number.isnumeric() == True and len(input_number) == 4:
+        print("Your number is", input_number)
+        break
+    elif input_number.isnumeric() == True and len(input_number)<4:
+        print("Input is shorter than 4 numbers")
+        input_number = input("Enter a 4 digit number 1-9 :")
+    elif input_number.isnumeric() == True and len(input_number)>4:
+        print("Input is longer than 4 numbers")
+        input_number = input("Enter a 4 digit number 1-9 :")
+    elif input_number.isnumeric()==False and len(input_number)==4:
+        print("Your input is not numeric, must contain only numbers 1-9")
+        input_number = input("Enter a 4 digit number 1-9 :")
+    elif input_number.isnumeric()==False and len(input_number)<4:
+        print("Your input is not numeric and shorter than 4, must contain only numbers 1-9")
+        input_number = input("Enter a 4 digit number 1-9 :")
+    elif input_number.isnumeric() == False and len(input_number) > 4:
+        print("Your input is not numeric and longer than 4, must contain only numbers 1-9")
+        input_number = input("Enter a 4 digit number 1-9 :")
+    else:none
+
+bulls = 0
+cows = 0
+
+
+while bulls<5:
+    bulls = 0
+    cows = 0
+    for index_random_number, random_number in enumerate(random_numbers):
+        # print("random number", random_number)
+        for index_inputed_number, inputed_number in enumerate(input_numbers):
+            # print("inputed number:", inputed_number)
+            if int(random_number)==int(inputed_number)  and index_random_number==index_inputed_number:
+                bulls+=1
+            if int(random_number)==int(inputed_number) and index_random_number != index_inputed_number:
+                cows+=1
+
+    if bulls==1: print("1 bull")
+    else: print(bulls, "bulls")
+
+    if cows==1: print("1 cow")
+    else: print (cows, "cows")
+
+    if bulls==4:print("Congratulations! You guessed the right number")
+    break
+    else:input_number = input("Continue to guess a  new 4 digit number 1-9 :")
+
+    while input_number != "":
+        input_numbers = []
+        for a in input_number:
+            input_numbers.append(a)
+
+        if input_numbers[0] == 0:
+            print("The number can´t start with 0!")
+            input_number = input("Enter a 4 digit number 1-9 :")
+
+        if len(input_numbers) == 4:
+            if (input_numbers[0] == input_numbers[1] or input_numbers[0] == input_numbers[2] or input_numbers[0] ==
+                    input_numbers[3] or input_numbers[1] == input_numbers[2] or input_numbers[2] == input_numbers[3]):
+                print("Digits in nuber must be different!")
+                input_number = input("Enter a 4 digit number 1-9 :")
+        if len(input_numbers) == 3:
+            if (input_numbers[0] == input_numbers[1] or input_numbers[0] == input_numbers[2] or input_numbers[1] ==
+                    input_numbers[2]):
+                print("Digits in nuber must be different!")
+                input_number = input("Enter a 4 digit number 1-9 :")
+        if len(input_numbers) == 2:
+            if input_numbers[0] == input_numbers[1]:
+                print("Digits in nuber must be different!")
+                input_number = input("Enter a 4 digit number 1-9 :")
+        elif input_number.isnumeric() == True and len(input_number) == 4:
+            print("Your number is", input_number)
+            break
+        elif input_number.isnumeric() == True and len(input_number) < 4:
+            print("Input is shorter than 4 numbers")
+            input_number = input("Enter a 4 digit number 1-9 :")
+        elif input_number.isnumeric() == True and len(input_number) > 4:
+            print("Input is longer than 4 numbers")
+            input_number = input("Enter a 4 digit number 1-9 :")
+        elif input_number.isnumeric() == False and len(input_number) == 4:
+            print("Your input is not numeric, must contain only numbers 1-9")
+            input_number = input("Enter a 4 digit number 1-9 :")
+        elif input_number.isnumeric() == False and len(input_number) < 4:
+            print("Your input is not numeric and shorter than 4, must contain only numbers 1-9")
+            input_number = input("Enter a 4 digit number 1-9 :")
+        elif input_number.isnumeric() == False and len(input_number) > 4:
+            print("Your input is not numeric and longer than 4, must contain only numbers 1-9")
+            input_number = input("Enter a 4 digit number 1-9 :")
+        else:
+            none
+
