@@ -64,7 +64,7 @@ while input_number!="":
 
     for a in input_number:
         input_numbers.append(a)
-    
+
     bulls = 0
     cows = 0
     for index_random_number, random_number in enumerate(random_numbers):
@@ -78,12 +78,11 @@ while input_number!="":
     else: print(bulls, "bulls")
 
     if cows==1: print("1 cow")
-    else: print (cows, "cows")
+    else: print(cows, "cows")
+
+    if bulls!=4:
+        input_number = input("Continue to guess a new 4 digit number 1-9 :")
+        continue
 
     if bulls==4:print("Congratulations! You guessed the right number")
-    else:input_number = input("Continue to guess a new 4 digit number 1-9 :")
-
-
-
-
-
+    break
